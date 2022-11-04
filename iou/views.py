@@ -8,7 +8,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
     filterset_fields = ['name',]
 
-class UserCreateViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
+class UserCreateViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):    
     queryset = IouUser.objects.all()
     serializer_class = UserSerializer
 
