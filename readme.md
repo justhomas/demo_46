@@ -28,9 +28,16 @@ python manage.py migrate
 ```sh
 python manage.py runserver
 ```
+# Documentation
+The api documentation is available at `/docs`
+
+# Demo
+
+A demo project is hosted at [demo46.justhomas.in](https://demo46.justhomas.in)
 
 # New Features / Scaling options
 - Replacing SQLite with a database backend like PostgreSQL.
 - Proper authentication to make sure that a third party cannot make fake entries.
 - Payment Gateway integration to make it easier to transfer money through this app and keep records of transfers.
 - Splitting the app to smaller services (user authentication service, service for managing and displaying iou entrieds etc...)  so that they can be developed and scale independantly.
+
