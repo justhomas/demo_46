@@ -27,7 +27,7 @@ router = routers.DefaultRouter()
 router.register(r'settleup', UserViewSet)
 router.register('add',UserCreateViewSet)
 router.register('iou',IouCreateViewset)
-schema_view = get_swagger_view(title='Pastebin API')
+schema_view = get_swagger_view(title='IOU API')
 
 urlpatterns = [
     path('', include(router.urls)),

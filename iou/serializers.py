@@ -20,10 +20,16 @@ class OwedSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     owes = OwesSerializer(many=True, read_only=True)
-    owed= OwedSerializer(many=True, read_only=True)
+    owed = OwedSerializer(many=True, read_only=True)
+    balance = serializers.SerializerMethodField()
     class Meta:
         model = IouUser
-        fields = ['name', 'owes', 'owed']
+        fields = ['name', 'owes', 'owed','balance']
+
+    def get_balance(self,obj):
+        total_owes = sum([x.amount for x in obj.owes.all()])
+        total_owed = sum([x.amount for x in obj.owed.all()])
+        return f"{total_owed - total_owes:1.2f}"
 
 
 class LedgerSerializer(serializers.ModelSerializer):
