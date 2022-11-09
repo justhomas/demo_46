@@ -45,4 +45,6 @@ class LedgerSerializer(serializers.ModelSerializer):
         borrower = data['user']
         if lender.name == borrower.name:
             raise serializers.ValidationError("Lender and Borrower cannot be one person")
+        if data['amount']<=0:
+            raise serializers.ValidationError("Amount cannot be less than or equal to zero")
         return data
