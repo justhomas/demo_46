@@ -1,10 +1,7 @@
 import graphene
 from graphene_django import DjangoObjectType
 from .models import Ledger,IouUser
-from datetime import timezone
-
-class Query(graphene.ObjectType):
-    hello = graphene.String(default_value="Hi!")
+from datetime import timezone, datetime
 
 class ExpiredIouType(DjangoObjectType):
     lender = graphene.String()
@@ -28,7 +25,7 @@ class Query(graphene.ObjectType):
     expired_iou = graphene.List(ExpiredIouType)
 
     def resolve_expired_iou(root, info):
-        return Ledger.objects.all()
+        return Ledger.objects.filter(expiration__lte=datetime.now()).all()
 
       
 schema = graphene.Schema(query=Query)
