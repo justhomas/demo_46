@@ -28,6 +28,13 @@ python manage.py migrate
 ```sh
 python manage.py runserver
 ```
+
+# Running test cases
+In order to run the test cases, make sure you have pytest installed in your test environment and run the below command.
+```sh
+pytest
+```
+
 # Documentation
 The api documentation is available at `/docs`
 
