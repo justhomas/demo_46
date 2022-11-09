@@ -30,7 +30,7 @@ python manage.py runserver
 ```
 
 # Running test cases
-In order to run the test cases, make sure you have pytest installed in your test environment and run the below command.
+In order to run the test cases, make sure you have `pytest` installed in your test environment and run the below command. Test cases are present inside the directory `tests/test_iou_app`.
 ```sh
 pytest
 ```
